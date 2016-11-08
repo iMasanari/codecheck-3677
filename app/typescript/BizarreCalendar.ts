@@ -8,19 +8,20 @@ export class BizarreCalendar {
         public daysInWeek: number
     ) { }
 
-    // 日付を登録する。戻り値はその日付が存在するかどうか
+    // 日付を登録する
+    // 戻り値はその日付が存在するかどうか
     setDate(yyyy_mm_dd: string) {
         const [year, month, date] = yyyy_mm_dd.split('-').map(v => +v)
-        const monthsInYear = this.getMonthsFromYear(year) - this.getMonthsFromYear(year - 1)
+        const monthsInYear = this.getElapsedMonths(year + 1) - this.getElapsedMonths(year)
 
-        this.elapsedDays = (this.getMonthsFromYear(year - 1) + (month - 1)) * this.daysInMonth + (date - 1)
+        this.elapsedDays = this.getElapsedMonths(year, month) * this.daysInMonth + (date - 1)
 
         return !(monthsInYear < month || this.daysInMonth < date)
     }
 
-    // その年にある月の数を返す
-    getMonthsFromYear(year: number) {
-        return year * this.daysInYear / this.daysInMonth | 0
+    // 0001年1月から経過した月数を返す
+    getElapsedMonths(year: number, month = 1) {
+        return (year - 1) * this.daysInYear / this.daysInMonth + (month - 1) | 0
     }
 
     // 登録した日付の曜日を返す
