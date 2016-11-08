@@ -3,7 +3,9 @@
   "version" : "1.0.0",
   "description" : "codecheck challenge",
   "scripts" : {
-    "test" : "mocha"
+    "test": "codecheck",
+    "build": "tsc --outDir app app/typescript/main.ts",
+    "build-and-test": "npm run build && npm run test"
   },
   "author" : "Givery",
   "devDependencies" : {
