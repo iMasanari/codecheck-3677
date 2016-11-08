@@ -1,5 +1,3 @@
-build:
-- npm install
 env:
   APP_COMMAND: node index.js
 test: mocha
