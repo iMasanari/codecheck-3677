@@ -1,12 +1,16 @@
 export class BizarreCalendar {
+    daysInYear: number
+    daysInMonth: number
+    daysInWeek: number
+
     // 0001年1月1日から経過した日数
     elapsedDays: number
 
-    constructor(
-        public daysInYear: number,
-        public daysInMonth: number,
-        public daysInWeek: number
-    ) { }
+    constructor(year: number, month: number, week: number) {
+        this.daysInYear =  year
+        this.daysInMonth =  month
+        this.daysInWeek =  week
+    }
 
     // 日付を登録する
     // 戻り値はその日付が存在するかどうか

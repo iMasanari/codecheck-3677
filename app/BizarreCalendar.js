@@ -1,9 +1,9 @@
 "use strict";
 var BizarreCalendar = (function () {
-    function BizarreCalendar(daysInYear, daysInMonth, daysInWeek) {
-        this.daysInYear = daysInYear;
-        this.daysInMonth = daysInMonth;
-        this.daysInWeek = daysInWeek;
+    function BizarreCalendar(year, month, week) {
+        this.daysInYear = year;
+        this.daysInMonth = month;
+        this.daysInWeek = week;
     }
     // 日付を登録する
     // 戻り値はその日付が存在するかどうか
